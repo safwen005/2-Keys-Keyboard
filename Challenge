@@ -1,0 +1,35 @@
+Link : https://leetcode.com/problems/2-keys-keyboard/
+
+Code : 
+
+class Solution {
+    func minSteps(_ n: Int) -> Int {
+        
+        if (!(1...1000).contains(n)){
+            return 0
+        }
+        
+        var step=0
+        var notepad="A"
+        var paste=""
+        var stop=false
+        myLable:while(!stop){
+            if (notepad.length==n){
+                break
+            }
+            if (n%notepad.length*2==0){
+                paste=notepad
+                notepad+=notepad
+                step+=2
+            }
+            else {
+                notepad+=paste
+                step+=1
+            }
+        }
+        
+        return step        
+        
+        
+    }
+}
